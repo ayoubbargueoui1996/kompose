@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+        kompose:
+                container_name: kompose
+                hostname: kompose
+                build:
+                        context: .
+                        target: kompose
+                        args:
+                                # Replace with the commit id of the version to build
+                                RELEASE: 0b331d9e5dede975d62ca382b2dd7dff89019f6e
+                environment:
+                        - WORKDIR=/volume
+                        - USERID=1000 # Replace with your uid `$(id -u)`
+                        - GROUPID=1000 # Replace with your gid `$(id -g)`
+                volumes:
+                        # Replace the left path with yours
+                        - ./path/to/your/docker-compose/repository/to/convert:/volume
+                command: convert
+                image: kompose
