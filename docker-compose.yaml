@@ -15,6 +15,6 @@ services:
                         - GROUPID=1000 # Replace with your gid `$(id -g)`
                 volumes:
                         # Replace the left path with yours
-                        - ./path/to/your/docker-compose/repository/to/convert:/volume
+                        - /home/superg/superg-test-trunks:/volume
                 command: convert
                 image: kompose
